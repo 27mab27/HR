@@ -1,12 +1,53 @@
 {% extends 'main.html' %}
 
 {% block content %}
-<div>
-    <form method="POST" action="">
+    <form method="post">
         {% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" value="submit">
-
+        <p>
+            {{ form.age.label_tag }} {{ form.age }}
+            {% if form.age.errors %}<span>{{ form.age.errors }}</span>{% endif %}
+        </p>
+        <p>
+            {{ form.gender.label_tag }} {{ form.gender }}
+            {% if form.gender.errors %}<span>{{ form.gender.errors }}</span>{% endif %}
+        </p>
+        <p>
+            {{ form.education_level.label_tag }} {{ form.education_level }}
+            {% if form.education_level.errors %}<span>{{ form.education_level.errors }}</span>{% endif %}
+        </p>
+        <p>
+            {{ form.experience_years.label_tag }} {{ form.experience_years }}
+            {% if form.experience_years.errors %}<span>{{ form.experience_years.errors }}</span>{% endif %}
+        </p>
+        <p>
+            {{ form.previous_companies.label_tag }} {{ form.previous_companies }}
+            {% if form.previous_companies.errors %}<span>{{ form.previous_companies.errors }}</span>{% endif %}
+        </p>
+        <p>
+            {{ form.distance_from_company.label_tag }} {{ form.distance_from_company }}
+            {% if form.distance_from_company.errors %}<span>{{ form.distance_from_company.errors }}</span>{% endif %}
+        </p>
+        <p>
+            {{ form.interview_score.label_tag }} {{ form.interview_score }}
+            {% if form.interview_score.errors %}<span>{{ form.interview_score.errors }}</span>{% endif %}
+        </p>
+        <p>
+            {{ form.skill_score.label_tag }} {{ form.skill_score }}
+            {% if form.skill_score.errors %}<span>{{ form.skill_score.errors }}</span>{% endif %}
+        </p>
+        <p>
+            {{ form.personality_score.label_tag }} {{ form.personality_score }}
+            {% if form.personality_score.errors %}<span>{{ form.personality_score.errors }}</span>{% endif %}
+        </p>
+        <p>
+            {{ form.recruitment_strategy.label_tag }} {{ form.recruitment_strategy }}
+            {% if form.recruitment_strategy.errors %}<span>{{ form.recruitment_strategy.errors }}</span>{% endif %}
+        </p>
+        <button type="submit">Submit</button>
     </form>
-</div>
+    {% if y_pred is not None %}
+        <h2>Prediction Result: {{ y_pred }}</h2>
+    {% endif %}
+
+
 {% endblock %}
