@@ -68,7 +68,6 @@ def registerPage(request):
     return render(request, 'login_register.html', {'form': form})
 
 
-@login_required(login_url='login')
 def Home (request):
     y_pred=None
     form = RecruitmentData(request.POST)

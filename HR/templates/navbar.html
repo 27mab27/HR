@@ -1,9 +1,25 @@
-<a href="/"><h1>HR</h1></a>
-{% if request.user.is_authenticated %}
-<p>Hello {{request.user}}</p>
-<a href="{% url 'logout' %}">Logout</a>
-{% else %}
-<a href="{% url 'login' %}">Login</a>
-{% endif %}
-<hr>
-
+{% load static %}
+<div class="header">
+    <img class="logo" src="{% static 'images/logo.png' %}" />
+    <div class="header-links">
+        <a href="#">Home</a>
+        <a href="#">Our model</a>
+        <a href="#">Contact</a>
+        <a href="#">About</a>
+        {% if request.user.is_authenticated %}
+        <a href="{% url 'logout' %}" class="btn-signin">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>Logout
+        </a>
+        {% else %}
+        <a href="{% url 'login' %}" class="btn-signin">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>Login
+        </a>
+        {% endif %}
+    </div>
+</div>
