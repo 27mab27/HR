@@ -1,21 +1,34 @@
 {% extends 'main.html' %}
-
+{% load static %}
 {% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles/login.css' %}">
 {% if page == 'Login' %}
-<div>
+<div class="login-box">
+    <h2>Login Form</h2>
     <form method="POST" action=""> 
-            {% csrf_token %}
-            <label>Username:</label>
-            <input  type="text"   name="username" placeholder="Enter Username"/>
-
-            <label>Password:</label>
-            <input  type="password"   name="password" placeholder="Enter Password"/>
-
-            <input type="submit" value="Login" />
-     </form>
-     <p> havent signed up yet ?</p>
-     <a href="{% url 'register' %}"> sign up</a>
+        {% csrf_token %}
+        <div class="user-box">
+            <input type="text" required name="username">
+            <label for="">Username</label>
+        </div>
+        <div class="user-box">
+            <input type="password" required name="password">
+            <label for="">password</label>
+        </div>
+        <button type="submit" class="btn-signin">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>Submit
+        </button>
+    </form>
 </div>
+
+
+
+
+
+
 {% else %}
 
 <div>
@@ -27,7 +40,7 @@
             <input type="submit" value="Register" />
      </form>
      <p> already signed up yet ?</p>
-     <a href="{% url 'register' %}">Login </a>
+     <a href="{% url 'login' %}">Login </a>
 </div>
 {% endif%}
 {% endblock content %}

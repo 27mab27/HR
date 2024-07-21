@@ -10,6 +10,8 @@ from joblib import load
 import pickle
 import os
 
+
+
 model_path = os.path.join('savedModels', 'best_stacking_model.pkl')
 try:
     with open(model_path, 'rb') as file:
@@ -68,7 +70,6 @@ def registerPage(request):
     return render(request, 'login_register.html', {'form': form})
 
 
-@login_required(login_url='login')
 def Home (request):
     y_pred=None
     form = RecruitmentData(request.POST)
