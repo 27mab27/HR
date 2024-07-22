@@ -1,11 +1,13 @@
 {% load static %}
 <div class="header">
-    <img class="logo" src="{% static 'images/logo.png' %}" />
+     <a href="{% url 'root'%}">
+        <img class="logo" src="{% static 'images/logo.png' %}" />
+     </a>
     <div class="header-links">
-        <a href="#">Home</a>
-        <a href="#">Our model</a>
-        <a href="#">Contact</a>
-        <a href="#">About</a>
+        <a href="{% url 'root' %}">Home</a>
+        <a href="{% url 'root' %}">Our model</a>
+        <a href="{% url 'root' %}">Contact</a>
+        <a href="{% url 'root' %}">About</a>
         {% if request.user.is_authenticated %}
         <a href="{% url 'logout' %}" class="btn-signin">
             <span></span>

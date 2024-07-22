@@ -26,23 +26,35 @@
     <a href="{% url 'register' %}"> sign up</a>
 </div>
 
-
-
-
-
-
 {% else %}
 
-<div>
-    <form method="POST" action=""> 
-            {% csrf_token %}
-           
-            {{form.as_p}}
-        
-            <input type="submit" value="Register" />
-     </form>
-     <p> already signed up yet ?</p>
-     <a href="{% url 'login' %}">Login </a>
+
+<div class="login-box">
+    <h2>Registration Form</h2>
+    <form method="POST" action="">
+        {% csrf_token %}
+        <div class="user-box">
+            {{form.username}}
+            <label for="username">Username</label>
+        </div>
+        <div class="user-box">
+            {{form.password1}}
+            <label for="password">Password</label>
+        </div>
+        <div class="user-box">
+            {{form.password2}}
+            <label for="password1">Confirm Password</label>
+        </div>
+        <button type="submit" class="btn-signin">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>Submit
+        </button>
+    </form>
+    <p>already signed up yet?</p>
+    <a href="{% url 'login' %}">Login</a>
 </div>
+
 {% endif%}
 {% endblock content %}
