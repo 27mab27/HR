@@ -109,3 +109,8 @@ def Home (request):
     comtex={"form":form,"y_pred":y_pred}
 
     return render(request,'home.html',comtex)
+
+def root (request):
+    return render(request,'root.html')
+
+
