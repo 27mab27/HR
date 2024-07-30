@@ -1,4 +1,5 @@
 from django.db import models
+from django.forms import ValidationError
 
 class RecruitmentData(models.Model):
     age = models.IntegerField()
@@ -11,3 +12,5 @@ class RecruitmentData(models.Model):
     skill_score = models.IntegerField()
     personality_score = models.IntegerField()
     recruitment_strategy = models.IntegerField(choices=[(1, 'Aggressive'), (2, 'Moderate'),(3,'Conservative')])
+
+

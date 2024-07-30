@@ -1,9 +1,6 @@
 {% extends 'main.html' %}
 
 {% block content %}
-
-
-
 <body>
    {% include 'navbar.html' %}
     <div class="login-box">
@@ -14,42 +11,112 @@
                 <div class="user-box">
                     {{ form.age }}
                     <label>Age</label>
+                    {% if form.is_bound and form.age.errors %}
+                        <ul class="errorlist">
+                            {% for error in form.age.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
                 </div>
                 <div class="user-box">
                     {{ form.gender }}
                     <label>Gender</label>
+                    {% if form.is_bound and form.gender.errors %}
+                        <ul class="errorlist">
+                            {% for error in form.gender.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
                 </div>
                 <div class="user-box">
                     {{ form.education_level }}
                     <label>Education level</label>
+                    {% if form.is_bound and form.education_level.errors %}
+                        <ul class="errorlist">
+                            {% for error in form.education_level.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
                 </div>
                 <div class="user-box">
                     {{ form.experience_years }}
                     <label>Experience years</label>
+                    {% if form.is_bound and form.experience_years.errors %}
+                        <ul class="errorlist">
+                            {% for error in form.experience_years.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
                 </div>
                 <div class="user-box">
                     {{ form.previous_companies }}
                     <label>Previous companies</label>
+                    {% if form.is_bound and form.previous_companies.errors %}
+                        <ul class="errorlist">
+                            {% for error in form.previous_companies.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
                 </div>
                 <div class="user-box">
                     {{ form.distance_from_company }}
-                    <label>Distance from company</label>
+                    <label>Distance from company (Km)</label>
+                    {% if form.is_bound and form.distance_from_company.errors %}
+                        <ul class="errorlist">
+                            {% for error in form.distance_from_company.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
                 </div>
                 <div class="user-box">
                     {{ form.interview_score }}
                     <label>Interview score</label>
+                    {% if form.is_bound and form.interview_score.errors %}
+                        <ul class="errorlist">
+                            {% for error in form.interview_score.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
                 </div>
                 <div class="user-box">
                     {{ form.skill_score }}
                     <label>Skill score</label>
+                    {% if form.is_bound and form.skill_score.errors %}
+                        <ul class="errorlist">
+                            {% for error in form.skill_score.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
                 </div>
                 <div class="user-box">
                     {{ form.personality_score }}
                     <label>Personality score</label>
+                    {% if form.is_bound and form.personality_score.errors %}
+                        <ul class="errorlist">
+                            {% for error in form.personality_score.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
                 </div>
                 <div class="user-box">
                     {{ form.recruitment_strategy }}
                     <label>Recruitment strategy</label>
+                    {% if form.is_bound and form.recruitment_strategy.errors %}
+                        <ul class="errorlist">
+                            {% for error in form.recruitment_strategy.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
                 </div>
             </div>
             <button type="submit" class="btn-signin">
@@ -66,5 +133,4 @@
         </form>
     </div>
 </body>
-
 {% endblock %}

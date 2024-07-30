@@ -53,13 +53,12 @@ body {
 }
 
 .login-box {
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    position: relative; /* Changed from absolute to relative */
+    top: 50px; /* Added top margin */
+    margin: 0 auto;
     height: auto;
-    width: 1000px;
+    width: 800px; /* Adjusted width for better layout */
     padding: 40px;
-    transform: translate(-50%, -50%);
     background: rgba(0, 0, 0, 0.5);
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
@@ -237,4 +236,27 @@ body {
 .form-row-full {
     width: 100%;
     text-align: center;
+}
+
+/* Error message styling */
+.error {
+    color: #ff3860; /* Red color for errors */
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+.errorlist {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.errorlist li {
+    color: #ff3860; /* Red color for errors */
+    font-size: 0.9rem;
+    margin-top: 5px;
+    background-color: rgba(255, 255, 255, 0.8); /* Ensure visibility over dark backgrounds */
+    padding: 2px 5px;
+    border-radius: 3px;
+    z-index: 10;
 }

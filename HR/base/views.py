@@ -43,8 +43,7 @@ def LoginPage(request):
         if user is not None:
             login(request,user)
             return redirect('home')
-        else:
-            messages.error(request, 'Username OR password does not exist')
+    
     context = {'page':page}
     return render(request, 'login_register.html',context)
 
@@ -64,16 +63,16 @@ def registerPage(request):
             user.save()
             login(request, user)
             return redirect('home')
-        else:
-            messages.error(request, 'An error occurred during registration')
+        
 
     return render(request, 'login_register.html', {'form': form})
 
 
 def Home (request):
     y_pred=None
-    form = RecruitmentData(request.POST)
+    form = RecruitmentData()
     if request.method == 'POST':
+        form = RecruitmentData(request.POST)
         if form.is_valid():
             object1= form.save(commit=False)
             prediction_input = [
@@ -94,8 +93,7 @@ def Home (request):
                                          object1.previous_companies, object1.distance_from_company, object1.interview_score,
                                          object1.skill_score, object1.personality_score, object1.recruitment_strategy]])
             y_pred = y_pred[0]
-        else:
-            messages.error(request, 'An error occurred during registration')
+            
     if y_pred == 0:
         y_pred="NOT HIRED"
     if y_pred == 1:
