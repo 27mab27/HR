@@ -12,5 +12,7 @@ class RecruitmentData(models.Model):
     skill_score = models.IntegerField()
     personality_score = models.IntegerField()
     recruitment_strategy = models.IntegerField(choices=[(1, 'Aggressive'), (2, 'Moderate'),(3,'Conservative')])
+    hire = models.IntegerField(choices=[(0, 'Not Hired'), (1, 'Hired')])
+
 
 

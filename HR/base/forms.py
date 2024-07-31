@@ -16,6 +16,7 @@ class RecruitmentData(ModelForm):
 
     class Meta:
         model = RecruitmentData
+        exclude = ['hire']
         fields = '__all__'
 
 
@@ -33,8 +34,8 @@ class RecruitmentData(ModelForm):
 
     def clean_previous_companies(self):
         previous_companies = self.cleaned_data.get('previous_companies')
-        if previous_companies is not None and not (0 <= previous_companies <= 10):
-            raise forms.ValidationError('Previous companies must be between 0 and 10.')
+        if previous_companies is not None and not (0 <= previous_companies <= 100):
+            raise forms.ValidationError('Previous companies must be between 0 and 100.')
         return previous_companies
 
     def clean_distance_from_company(self):

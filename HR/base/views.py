@@ -89,21 +89,18 @@ def Home (request):
                             object1.recruitment_strategy
                         ]
                     ]        
-            y_pred = model.predict([[object1.age, object1.gender, object1.education_level, object1.experience_years,
-                                         object1.previous_companies, object1.distance_from_company, object1.interview_score,
-                                         object1.skill_score, object1.personality_score, object1.recruitment_strategy]])
+            y_pred = model.predict(prediction_input)
             y_pred = y_pred[0]
             
-    if y_pred == 0:
-        y_pred="NOT HIRED"
-    if y_pred == 1:
-        y_pred="HIRED"
-        
-    
-        
-    
-
-
+            if y_pred == 0:
+                object1.hire = 0
+                y_pred = "NOT HIRED"
+            elif y_pred == 1:
+                object1.hire = 1
+                y_pred = "HIRED"
+                
+            object1.save()  # Save the object with the prediction result
+            
     comtex={"form":form,"y_pred":y_pred}
 
     return render(request,'home.html',comtex)
